@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3reajm8fr7nb"]
+
+[ext_resource type="Script" path="res://Scripts/Towers/Money Maker.gd" id="1_wejvu"]
+[ext_resource type="Texture2D" uid="uid://ds3lu6dirnxmt" path="res://Art/money printer.png" id="2_x07xr"]
+[ext_resource type="AudioStream" uid="uid://dlg260lcp2i8i" path="res://Sound/SFX/money print.wav" id="3_85so3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgqpx"]
+size = Vector2(16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(0, -2)
+collision_layer = 16
+script = ExtResource("1_wejvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x07xr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cgqpx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_85so3")
+bus = &"Sound Effects"

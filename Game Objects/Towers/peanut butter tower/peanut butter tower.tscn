@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3b2vo3hrrdds"]
+
+[ext_resource type="Texture2D" uid="uid://dt0bt0vn761h2" path="res://Art/Peanut butter jar.png" id="1_7c51k"]
+[ext_resource type="AudioStream" uid="uid://dwmhhtw8n4cue" path="res://Sound/SFX/Shoot.wav" id="2_3dxog"]
+[ext_resource type="Script" path="res://Scripts/Towers/Peanut butter bullet/shoot.gd" id="3_51hxt"]
+[ext_resource type="Texture2D" uid="uid://dyw43v6lt2kci" path="res://Art/pb shooter.png" id="4_ht6ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0lcv"]
+size = Vector2(16, 16)
+
+[node name="Peanut butter tower" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7c51k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j0lcv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3dxog")
+bus = &"Sound Effects"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 1)
+script = ExtResource("3_51hxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(3.5, 0)
+texture = ExtResource("4_ht6ua")

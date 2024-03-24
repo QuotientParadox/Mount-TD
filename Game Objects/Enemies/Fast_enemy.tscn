@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://unvkn0x22mq6"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Fast Enemy.gd" id="1_iympm"]
+[ext_resource type="Script" path="res://Scripts/Towers/Maple Syrup Tower/CharacterBody2D.gd" id="3_j6rqi"]
+[ext_resource type="Texture2D" uid="uid://dbc1sbu0ah2r8" path="res://Art/Enemy Health Bar Under.png" id="3_lxcfl"]
+[ext_resource type="Texture2D" uid="uid://un1qblxelfg2" path="res://Art/Enemy Health Bar.png" id="4_nh38k"]
+[ext_resource type="Texture2D" uid="uid://d1k1e50cc72ya" path="res://Art/Enemy.png" id="5_71j6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec0uj"]
+size = Vector2(16, 16)
+
+[node name="Fast Enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_iympm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_j6rqi")
+health = 4.0
+money_give = 3
+
+[node name="Health" type="TextureProgressBar" parent="CharacterBody2D"]
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 16.0
+offset_bottom = -10.0
+value = 1.0
+texture_under = ExtResource("3_lxcfl")
+texture_progress = ExtResource("4_nh38k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_ec0uj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.980392, 0.984314, 0.964706, 1)
+texture = ExtResource("5_71j6h")

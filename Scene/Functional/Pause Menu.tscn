@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://o4r5b2tkpinb"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Pause Menu.gd" id="1_q16g4"]
+[ext_resource type="AudioStream" uid="uid://26xiibsmah65" path="res://Sound/SFX/select.wav" id="2_3vwcn"]
+[ext_resource type="FontFile" uid="uid://dhufci7ogwx6g" path="res://Fonts/pixel art font.ttf" id="3_4flb8"]
+[ext_resource type="Texture2D" uid="uid://bc3on24vjpden" path="res://Art/UI/Continue Button.png" id="4_bsu6c"]
+[ext_resource type="Texture2D" uid="uid://dros8ofgl7dy2" path="res://Art/UI/Continue Button Pressed.png" id="5_mfq2d"]
+[ext_resource type="Texture2D" uid="uid://b6w42rk0e0aqk" path="res://Art/UI/Continue Button Hover.png" id="6_00ri8"]
+[ext_resource type="Texture2D" uid="uid://dwiyqoev0t0ff" path="res://Art/UI/Exit Button.png" id="7_7bv6e"]
+[ext_resource type="Texture2D" uid="uid://cs3psdxxv6wle" path="res://Art/UI/Exit Button Pressed.png" id="8_m44t5"]
+[ext_resource type="Texture2D" uid="uid://cvoahbmtvx6gy" path="res://Art/UI/Exit button Hover.png" id="9_6uivb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dblxe"]
+font = ExtResource("3_4flb8")
+font_size = 66
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_q16g4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3vwcn")
+bus = &"Sound Effects"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.191
+anchor_right = 0.674
+anchor_bottom = 0.809
+offset_left = 0.447998
+offset_top = 0.231987
+offset_right = -0.447998
+offset_bottom = -0.231995
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_dblxe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="continue" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_bsu6c")
+texture_pressed = ExtResource("5_mfq2d")
+texture_focused = ExtResource("6_00ri8")
+
+[node name="quit" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_7bv6e")
+texture_pressed = ExtResource("8_m44t5")
+texture_focused = ExtResource("9_6uivb")
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6odjvhwg8vde"]
+
+[ext_resource type="Script" path="res://Scripts/Towers/WT tower/WT tower.gd" id="1_55ffc"]
+[ext_resource type="Texture2D" uid="uid://dixk00e5n1ebx" path="res://Art/Walkie talkie tower.png" id="2_pnehn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjtpy"]
+size = Vector2(16, 16)
+
+[node name="WtTower" type="StaticBody2D" groups=["WT tower"]]
+collision_layer = 16
+script = ExtResource("1_55ffc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pnehn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vjtpy")

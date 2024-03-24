@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://djuvhymrufj7g"]
+
+[ext_resource type="Script" path="res://Scripts/Towers/WT tower/kill_self.gd" id="1_c8ext"]
+
+[node name="Line" type="Line2D"]
+width = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+script = ExtResource("1_c8ext")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5ayjxq1e2pyg"
+path="res://.godot/imported/Peanut Butter Hit.wav-17f183eb8f7265dd42f48e80446ee5dc.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/Peanut Butter Hit.wav"
+dest_files=["res://.godot/imported/Peanut Butter Hit.wav-17f183eb8f7265dd42f48e80446ee5dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

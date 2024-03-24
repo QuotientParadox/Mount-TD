@@ -1,0 +1,226 @@
+[gd_scene load_steps=26 format=3 uid="uid://bm8f32uqj0jme"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Main Menu.gd" id="1_5o20o"]
+[ext_resource type="AudioStream" uid="uid://26xiibsmah65" path="res://Sound/SFX/select.wav" id="2_lp52b"]
+[ext_resource type="Script" path="res://Scripts/UI/Functional/get_focus.gd" id="3_ccq6t"]
+[ext_resource type="AudioStream" uid="uid://d1x0dlwcy804d" path="res://Sound/Music/Title Music.wav" id="3_sr2gt"]
+[ext_resource type="Texture2D" uid="uid://sjj0qqdj66xo" path="res://Art/Shield.png" id="3_tsdo4"]
+[ext_resource type="FontFile" uid="uid://dhufci7ogwx6g" path="res://Fonts/pixel art font.ttf" id="3_uw33j"]
+[ext_resource type="Script" path="res://Scripts/repeat.gd" id="4_84gsa"]
+[ext_resource type="Texture2D" uid="uid://carx4ms6gg5ch" path="res://Art/UI/Start Button.png" id="5_g2yy1"]
+[ext_resource type="Texture2D" uid="uid://qsux6ehs0ud4" path="res://Art/UI/Play Button Pressed.png" id="6_rf4c3"]
+[ext_resource type="Texture2D" uid="uid://dsl2ngp5051oo" path="res://Art/UI/Play Button Hover.png" id="7_7nhs3"]
+[ext_resource type="Texture2D" uid="uid://eagsg75ae3g8" path="res://Art/UI/Quit Button.png" id="7_66v01"]
+[ext_resource type="Texture2D" uid="uid://dx17pf3pa3u33" path="res://Art/UI/Quit Button Pressed.png" id="10_fgpik"]
+[ext_resource type="Texture2D" uid="uid://cj21gd32jn5tm" path="res://Art/UI/Quit Button Hover.png" id="11_au7ca"]
+[ext_resource type="Texture2D" uid="uid://beo8g6re8xtyc" path="res://Art/UI/Options Button.png" id="12_womhx"]
+[ext_resource type="Texture2D" uid="uid://c7gumkhn2r10q" path="res://Art/UI/Options Button Hover.png" id="13_bo17v"]
+[ext_resource type="Texture2D" uid="uid://x7hhayx846ff" path="res://Art/UI/Options Button Pressed.png" id="13_mxtcq"]
+[ext_resource type="PackedScene" uid="uid://dxf3ry5kq00kn" path="res://Game Objects/particles/snow.tscn" id="14_sbr0d"]
+[ext_resource type="Script" path="res://Scripts/UI/Settings/Settings.gd" id="17_7t3i5"]
+[ext_resource type="Texture2D" uid="uid://cxgqn48g1765p" path="res://Art/UI/Confirm Button.png" id="18_ptcut"]
+[ext_resource type="Texture2D" uid="uid://clluu1kig0dtq" path="res://Art/UI/Confirm Button Pressed.png" id="19_b81em"]
+[ext_resource type="Texture2D" uid="uid://c3wa2c3fr51vx" path="res://Art/UI/Confirm Button Hover.png" id="20_kdvgd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6r4hp"]
+font = ExtResource("3_uw33j")
+font_size = 64
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cpbxg"]
+font = ExtResource("3_uw33j")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1w3b"]
+font = ExtResource("3_uw33j")
+font_size = 64
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_07e14"]
+font = ExtResource("3_uw33j")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5o20o")
+
+[node name="Snow" parent="." instance=ExtResource("14_sbr0d")]
+position = Vector2(1036, 0)
+amount = 800
+lifetime = 20.0
+emission_rect_extents = Vector2(400, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lp52b")
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sr2gt")
+volume_db = -1.285
+autoplay = true
+bus = &"Music"
+script = ExtResource("4_84gsa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1.0
+offset_bottom = 1.0
+texture = ExtResource("3_tsdo4")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.654232, 0.654232, 0.654232, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -160.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tsdo4")
+
+[node name="Main Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Container"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Title" type="Label" parent="Main Container/VBoxContainer"]
+layout_mode = 2
+text = "Mount TD"
+label_settings = SubResource("LabelSettings_6r4hp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="Main Container/VBoxContainer"]
+layout_mode = 2
+text = "By. Quotient Paradox"
+label_settings = SubResource("LabelSettings_cpbxg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="Main Container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_g2yy1")
+texture_pressed = ExtResource("6_rf4c3")
+texture_hover = ExtResource("6_rf4c3")
+texture_disabled = ExtResource("6_rf4c3")
+texture_focused = ExtResource("7_7nhs3")
+script = ExtResource("3_ccq6t")
+
+[node name="Object" type="TextureButton" parent="Main Container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_womhx")
+texture_pressed = ExtResource("13_mxtcq")
+texture_focused = ExtResource("13_bo17v")
+
+[node name="Quit" type="TextureButton" parent="Main Container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_66v01")
+texture_pressed = ExtResource("10_fgpik")
+texture_focused = ExtResource("11_au7ca")
+
+[node name="Settings" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+offset_right = -6.10352e-05
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_7t3i5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Title" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_b1w3b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Audio" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_07e14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioBox" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Audio" type="HSlider" parent="Settings/VBoxContainer/AudioBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SFX" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_07e14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound Effects" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Sound Effects" type="HSlider" parent="Settings/VBoxContainer/Sound Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Save" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="save" type="TextureButton" parent="Settings/VBoxContainer/Save"]
+layout_mode = 2
+texture_normal = ExtResource("18_ptcut")
+texture_pressed = ExtResource("19_b81em")
+texture_focused = ExtResource("20_kdvgd")
+
+[connection signal="finished" from="AudioStreamPlayer2" to="AudioStreamPlayer2" method="_on_finished"]
+[connection signal="pressed" from="Main Container/VBoxContainer/HBoxContainer/Start" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Main Container/VBoxContainer/HBoxContainer/Object" to="." method="_on_object_pressed"]
+[connection signal="pressed" from="Main Container/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioBox/Audio" to="Settings" method="_on_audio_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Sound Effects/Sound Effects" to="Settings" method="_on_sound_effects_value_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Save/save" to="Settings" method="_on_save_pressed"]

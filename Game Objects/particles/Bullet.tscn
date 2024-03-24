@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6aqh4nd6buf1"]
+
+[ext_resource type="Script" path="res://Scripts/particles.gd" id="1_c52lx"]
+[ext_resource type="AudioStream" uid="uid://cfhtnlmojqgyd" path="res://Sound/SFX/hit.wav" id="2_sq11k"]
+
+[node name="Bullet" type="CPUParticles2D"]
+emitting = false
+amount = 13
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 49.02
+initial_velocity_max = 126.65
+script = ExtResource("1_c52lx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sq11k")
+bus = &"Sound Effects"

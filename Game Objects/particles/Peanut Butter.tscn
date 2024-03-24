@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2pl4qh63v1ce"]
+
+[ext_resource type="Script" path="res://Scripts/particles.gd" id="1_nndjl"]
+[ext_resource type="AudioStream" uid="uid://c5ayjxq1e2pyg" path="res://Sound/SFX/Peanut Butter Hit.wav" id="2_s71y1"]
+
+[sub_resource type="Gradient" id="Gradient_30218"]
+offsets = PackedFloat32Array(0, 0.512397, 1)
+colors = PackedColorArray(0.776471, 0.717647, 0.745098, 1, 0.337255, 0.352941, 0.458824, 1, 0.337255, 0.352941, 0.458824, 0)
+
+[node name="Bullet" type="CPUParticles2D"]
+emitting = false
+amount = 13
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 90.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_30218")
+script = ExtResource("1_nndjl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s71y1")
+bus = &"Sound Effects"

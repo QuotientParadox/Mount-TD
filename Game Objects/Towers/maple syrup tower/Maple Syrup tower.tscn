@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://6rl4coq6wkba"]
+
+[ext_resource type="Texture2D" uid="uid://kuc7824f7shq" path="res://Art/Base.png" id="1_besjv"]
+[ext_resource type="AudioStream" uid="uid://dwmhhtw8n4cue" path="res://Sound/SFX/Shoot.wav" id="2_imuel"]
+[ext_resource type="Script" path="res://Scripts/Towers/Maple Syrup Tower/Maple Syrup tower.gd" id="3_dd18u"]
+[ext_resource type="Texture2D" uid="uid://bxrwgmpa58qjp" path="res://Art/Cannon.png" id="4_sq70n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybs1v"]
+size = Vector2(16, 16)
+
+[node name="MapleSyrupTower" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_besjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ybs1v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_imuel")
+bus = &"Sound Effects"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 1)
+script = ExtResource("3_dd18u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(3.5, 0)
+texture = ExtResource("4_sq70n")

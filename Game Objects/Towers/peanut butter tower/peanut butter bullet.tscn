@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcdupsm2c50xs"]
+
+[ext_resource type="Script" path="res://Scripts/Towers/Peanut butter bullet/peanut butter bullet.gd" id="1_h2dvt"]
+[ext_resource type="Texture2D" uid="uid://cm3ul3gmhvw4i" path="res://Art/pb shot.png" id="2_tw8fb"]
+[ext_resource type="AudioStream" uid="uid://cfhtnlmojqgyd" path="res://Sound/SFX/hit.wav" id="3_0p8ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a5rq"]
+size = Vector2(8, 8)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_h2dvt")
+
+[node name="Bullet Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tw8fb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3a5rq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0p8ip")
+bus = &"Sound Effects"
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

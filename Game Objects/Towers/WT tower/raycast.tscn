@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://05w6qrgug8bs"]
+
+[ext_resource type="Script" path="res://Scripts/Towers/WT tower/Raycast.gd" id="1_wx47y"]
+
+[node name="Raycast" type="RayCast2D"]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("1_wx47y")

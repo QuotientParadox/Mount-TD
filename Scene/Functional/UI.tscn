@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsdpy37aebp2d"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_cklxf"]
+[ext_resource type="Texture2D" uid="uid://c7old2unh3k3c" path="res://Art/UI/Healthbar.png" id="3_q43hd"]
+[ext_resource type="Texture2D" uid="uid://di6mjxfwc3dvt" path="res://Art/UI/Healthbar Top.png" id="4_5pivl"]
+[ext_resource type="Texture2D" uid="uid://lv6c55fu1o06" path="res://Art/Maple syrup icon.png" id="5_h3t51"]
+[ext_resource type="FontFile" uid="uid://dhufci7ogwx6g" path="res://Fonts/pixel art font.ttf" id="6_nqa78"]
+[ext_resource type="Texture2D" uid="uid://dx1pbqsmw671g" path="res://Art/pb buy icon.png" id="7_3khqw"]
+[ext_resource type="Texture2D" uid="uid://b684ystxoto30" path="res://Art/green ink tower.png" id="7_v1bja"]
+[ext_resource type="Texture2D" uid="uid://be2jrev8s0pt4" path="res://Art/Walkie talkie icon.png" id="8_strxk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3c2y"]
+font = ExtResource("6_nqa78")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wogys"]
+font = ExtResource("6_nqa78")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b4ski"]
+font = ExtResource("6_nqa78")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qke47"]
+font = ExtResource("6_nqa78")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cklxf")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.156
+offset_bottom = 0.0639992
+grow_horizontal = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Wave" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_l3c2y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_wogys")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 317.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Progress" type="TextureProgressBar" parent="Control/HBoxContainer"]
+layout_mode = 2
+max_value = 3.0
+value = 3.0
+texture_under = ExtResource("3_q43hd")
+texture_progress = ExtResource("4_5pivl")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = 0.954
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.120026
+offset_top = 0.119934
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.0588235, 0.0588235, 0.105882, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Maple Syrup Shooter" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_h3t51")
+
+[node name="Label" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "10$"
+label_settings = SubResource("LabelSettings_b4ski")
+
+[node name="Maple Syrup Shooter3" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_3khqw")
+
+[node name="Label3" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "20$"
+label_settings = SubResource("LabelSettings_b4ski")
+
+[node name="Maple Syrup Shooter4" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_strxk")
+
+[node name="Label4" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "40$"
+label_settings = SubResource("LabelSettings_b4ski")
+
+[node name="Maple Syrup Shooter2" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_v1bja")
+
+[node name="Label2" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50$"
+label_settings = SubResource("LabelSettings_b4ski")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.966
+anchor_top = 0.705
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.381958
+offset_top = 0.00999832
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/ColorRect/HBoxContainer2"]
+layout_mode = 2
+text = "69"
+label_settings = SubResource("LabelSettings_qke47")
+
+[connection signal="gui_input" from="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter" to="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter3" to="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter3" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter4" to="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter4" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter2" to="Control/ColorRect/VBoxContainer/HBoxContainer/Maple Syrup Shooter2" method="_on_gui_input"]

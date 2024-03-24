@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://cua5idoe1vwuu"]
+
+[ext_resource type="Script" path="res://Scripts/UI/died.gd" id="1_877d2"]
+[ext_resource type="Texture2D" uid="uid://bj1jc8c78jstp" path="res://Art/UI/Yes Button.png" id="3_7gvhi"]
+[ext_resource type="FontFile" uid="uid://dhufci7ogwx6g" path="res://Fonts/pixel art font.ttf" id="3_75jmw"]
+[ext_resource type="Script" path="res://Scripts/UI/Functional/get_focus.gd" id="3_xes7v"]
+[ext_resource type="Texture2D" uid="uid://bcc14k1e5ydnw" path="res://Art/UI/Yes Button Pressed.png" id="4_8gp7g"]
+[ext_resource type="Texture2D" uid="uid://c1t4g4rjhgtbb" path="res://Art/UI/Yes Button Hover.png" id="5_y3gej"]
+[ext_resource type="Texture2D" uid="uid://qnqdnbda7xs6" path="res://Art/UI/No Button.png" id="7_4nfev"]
+[ext_resource type="Texture2D" uid="uid://bbro62joeowyt" path="res://Art/UI/No Button Pressed.png" id="8_qnoot"]
+[ext_resource type="Texture2D" uid="uid://d0pd10j1yj51l" path="res://Art/UI/No Button Hover.png" id="9_di4nn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8d6x"]
+font = ExtResource("3_75jmw")
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbsjn"]
+line_spacing = 0.0
+font = ExtResource("3_75jmw")
+font_size = 12
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_62qnb"]
+font = ExtResource("3_75jmw")
+font_size = 8
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfp8d"]
+font = ExtResource("3_75jmw")
+font_size = 8
+font_color = Color(0.980392, 0.984314, 0.964706, 1)
+
+[node name="Died" type="CanvasLayer"]
+script = ExtResource("1_877d2")
+metadata/_edit_horizontal_guides_ = [-37.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(2.65, 2.65)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_y8d6x")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Try Again?"
+label_settings = SubResource("LabelSettings_pbsjn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_62qnb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="High Score" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_cfp8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="Yes" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_7gvhi")
+texture_pressed = ExtResource("4_8gp7g")
+texture_focused = ExtResource("5_y3gej")
+script = ExtResource("3_xes7v")
+
+[node name="No" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_4nfev")
+texture_pressed = ExtResource("8_qnoot")
+texture_focused = ExtResource("9_di4nn")
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
